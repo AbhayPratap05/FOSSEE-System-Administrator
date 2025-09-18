@@ -2,16 +2,12 @@
 
 This document covers how to install and configure Drupal 11 on Rocky Linux 10, connect it with a MariaDB database, secure it with SSL certificates, and integrate with Keycloak SSO.
 
----
-
 ## 1. Prerequisites
 
 - Working Apache with SSL enabled
-- DNS records configured for subdomain: drupal.abhaypratap.dev
 - Certbot installed and working on server
+- DNS records configured for subdomain: https://drupal.abhaypratap.dev
 - Keycloak already running at https://abhaypratap.dev
-
----
 
 ## 2. Create MariaDB Database for Drupal
 
@@ -27,8 +23,6 @@ FLUSH PRIVILEGES;
 EXIT;
 ```
 
----
-
 ## 3. Install Drupal
 
 Download Keycloak and extract to /opt/keycloak
@@ -41,8 +35,6 @@ sudo chmod -R 755 /var/www/drupal/web
 ```
 
 ![Drupal-Installed](screenshots/drupal/Drupal-Installed.png)
-
----
 
 ## 4. Configure Apache Reverse Proxy with SSL
 
@@ -90,8 +82,6 @@ Restart Apache:
 sudo systemctl restart httpd
 ```
 
----
-
 ## 5. SSL Certificates for Subdomains
 
 Requested a multi-domain certificate with Certbot:
@@ -119,9 +109,7 @@ curl -I http://django.abhaypratap.dev
 curl -I http://php.abhaypratap.dev
 ```
 
-![Domain Status](screenshots/drupal/Domain-Status.jpeg)
-
----
+![Domain Status](screenshots/drupal/Domain-Status.png)
 
 ## 6. Drupal Web Installer
 
@@ -134,15 +122,11 @@ Navigate to `https://drupal.abhaypratap.dev` to start installation.
 
 ![Drupal-UI-Installation](screenshots/drupal/Drupal-UI-Installation.jpeg)
 
----
-
 ## 7. Install Keycloak Module
 
 In the Drupal admin UI, go to Extend and enable the Keycloak module.
 
 ![Drupal-Keycloak-Module](screenshots/drupal/Keycloak-Module.jpeg)
-
----
 
 ## 8. Configure Keycloak
 
@@ -156,8 +140,6 @@ In the Drupal admin UI, go to Extend and enable the Keycloak module.
   - Copy Client Secret
 
 ![Keycloak-Config](screenshots/drupal/Keycloak-Config.png)
-
----
 
 ## 9. Configure Drupal Module:
 
@@ -175,9 +157,7 @@ In the Drupal admin UI, go to Extend and enable the Keycloak module.
     - Save user claims on every login
   - OpenID buttons display in user login form : ABOVE
 
-![Drupal-Config](screenshots/drupal/Drupal-Config.png)
-
----
+![Drupal-Config](screenshots/drupal/Drupal-Config.jpeg)
 
 ## 10. Disable Admin Approval for Registration
 
@@ -186,8 +166,6 @@ In the Drupal admin UI, go to Extend and enable the Keycloak module.
   - Change to Visitors
 
 ![Auto-Approve](screenshots/drupal/Auto-Approve.png)
-
----
 
 ## 11. Testing SSO
 

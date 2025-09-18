@@ -2,8 +2,6 @@
 
 This document covers the **creation and hardening** of a Rocky Linux 10 server on DigitalOcean for hosting Keycloak and applications.
 
----
-
 ## 1. Create Droplet
 
 - Logged into [DigitalOcean dashboard](https://cloud.digitalocean.com/droplets).
@@ -14,8 +12,6 @@ This document covers the **creation and hardening** of a Rocky Linux 10 server o
 
 ![DigitalOcean Droplet Created](screenshots/server/DO-Droplet.png)
 
----
-
 ## 2. Initial Login (root)
 
 Connected to new Droplet as the root user.
@@ -25,8 +21,6 @@ ssh root@139.59.37.53
 ```
 
 ![Root Login](screenshots/server/Root-login.jpeg)
-
----
 
 ## 3. Created a New User
 
@@ -53,8 +47,6 @@ ssh abhaypratap@139.59.37.53
 
 ![User Login](screenshots/server/User-login.png)
 
----
-
 ## 4. Disable Root Login
 
 Edit SSH config:
@@ -63,7 +55,7 @@ Edit SSH config:
 vim /etc/ssh/sshd_config
 ```
 
-Changed PermitRootLogin yes to PermitRootLogin no
+Changed `PermitRootLogin yes` to `PermitRootLogin no`
 
 ![Permit-Root-Login-No](screenshots/server/Permit-root-login.png)
 
@@ -72,8 +64,6 @@ Restart SSH:
 ```bash
 sudo systemctl restart sshd
 ```
-
----
 
 ## 5. Enable Firewall (firewalld)
 
@@ -100,8 +90,6 @@ sudo firewall-cmd --reload
 ```
 
 ![Enable-Firewall](screenshots/server/Enable-Firewall.png)
-
----
 
 ## 6. Update System & Install Core Components
 

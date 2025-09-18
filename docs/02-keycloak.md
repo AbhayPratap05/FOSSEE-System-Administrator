@@ -2,15 +2,11 @@
 
 This document covers how to set up Keycloak for production, including reverse proxy with Apache, SSL, and MariaDB integration.
 
----
-
 ## 1. Prerequisites
 
 - Linux server (Rocky Linux 10)
 - Apache installed with SSL support (mod_proxy, mod_ssl)
-- Domain pointing to server (abhaypratap.dev)
-
----
+- Domain pointing to server (https://abhaypratap.dev)
 
 ## 2. Install Java
 
@@ -19,10 +15,6 @@ Keycloak 21+ requires Java 17+. Rocky Linux 10 does not provide Java 17 in defau
 ```bash
 sudo dnf install java-21-openjdk java-21-openjdk-devel -y
 ```
-
-![Root Login](screenshots/server/Root-login.jpeg)
-
----
 
 ## 3. Install Keycloak
 
@@ -35,8 +27,6 @@ sudo unzip keycloak.zip
 sudo mv keycloak-21.1.1 keycloak
 sudo chown -R keycloak:keycloak keycloak
 ```
-
----
 
 ## 4. Configure Apache Reverse Proxy with SSL
 
@@ -75,8 +65,6 @@ Apache Virtual Host
 ```
 
 ![Apache Virtual Host](screenshots/keycloak/Apache-Virtual-Host.png)
-
----
 
 ## 5. Systemd Service for Keycloak
 
@@ -126,8 +114,6 @@ sudo systemctl status keycloak
 
 ![Keycloak Status](screenshots/keycloak/Keycloak-status.png)
 
----
-
 ## 6. MariaDB Setup for Keycloak
 
 Create database and user
@@ -146,7 +132,7 @@ sudo mkdir -p /opt/keycloak/providers
 sudo curl -L -o /opt/keycloak/providers/mariadb-java-client.jar https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/3.1.4/mariadb-java-client-3.1.4.jar
 ```
 
----
+![Keycloak Database](screenshots/keycloak/Keycloak-Database.png)
 
 ## 7. Keycloak Production Startup
 
@@ -161,5 +147,3 @@ Admin Console: `https://abhaypratap.dev/`
 ![Keycloak Login](screenshots/keycloak/Keycloak-Login.png)
 
 ![Keycloak Home](screenshots/keycloak/Keycloak-Home.png)
-
-![Keycloak Database](screenshots/keycloak/Keycloak-Database.png)

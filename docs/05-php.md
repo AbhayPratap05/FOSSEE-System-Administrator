@@ -2,17 +2,13 @@
 
 This document covers deploying a PHP application with Keycloak on Rocky Linux 10, using Apache with SSL
 
----
-
 ## 1. Prerequisites
 
 - Rocky Linux 10 server
 - Apache with SSL enabled
 - PHP 8.x installed with composer
-- Domain configured: php.abhaypratap.dev
+- DNS records configured for subdomain: https://php.abhaypratap.dev
 - Keycloak already running at https://abhaypratap.dev
-
----
 
 ## 2. Deploy PHP Application
 
@@ -28,8 +24,6 @@ cd /var/www/php_app
 # Install OIDC client library
 sudo composer require jumbojett/openid-connect-php
 ```
-
----
 
 ## 3. Configure Apache Virtual Host
 
@@ -79,8 +73,6 @@ sudo systemctl restart httpd
 
 ![Apache-Config](screenshots/php/Apache-Config.png)
 
----
-
 ## 4. Configure Keycloak
 
 - In Keycloak Admin Console:
@@ -93,8 +85,6 @@ sudo systemctl restart httpd
   - Copy Client Secret
 
 ![Keycloak-Config](screenshots/php/Keycloak-Config.png)
-
----
 
 ## 5. Application Files
 
@@ -124,8 +114,6 @@ You can browse individual files here:
 - [template.php](05-php_app/template.php)
 - [index.php](05-php_app/index.php)
 - [profile.php](05-php_app/profile.php)
-
----
 
 ## 6. Testing SSO
 

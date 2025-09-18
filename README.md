@@ -1,21 +1,15 @@
 # FOSSEE System Administrator (Semester Long Internship Task 2025)
 
----
-
 ## Introduction
 
 This project demonstrates implementation of Single Sign-On (SSO) across three applications: Drupal 11, Django, and PHP using Keycloak.
 
 It is deployed on a Rocky Linux 10 DigitalOcean droplet with SSL-secured applications, reverse proxies via Apache, and secure database connections.
 
----
-
 ## Droplet IPs
 
 - DigitalOcean Droplet **ipv4**: `139.59.37.53`
 - DigitalOcean Droplet **ipv6**: `2400:6180:100:d0::b948:9001`
-
----
 
 ## Live Domains
 
@@ -26,8 +20,6 @@ It is deployed on a Rocky Linux 10 DigitalOcean droplet with SSL-secured applica
 - **Django**: [https://django.abhaypratap.dev](https://django.abhaypratap.dev)
 
 - **PHP APP**: [https://php.abhaypratap.dev](https://php.abhaypratap.dev)
-
----
 
 ## Project Structure
 
@@ -58,8 +50,6 @@ It is deployed on a Rocky Linux 10 DigitalOcean droplet with SSL-secured applica
 └── README.md
 ```
 
----
-
 ## How to Follow Documentation
 
 1. Start with [01-server-setup.md](/docs/01-server-setup.md) to configure the droplet, firewall, and Apache.
@@ -76,8 +66,6 @@ It is deployed on a Rocky Linux 10 DigitalOcean droplet with SSL-secured applica
 
 > **Note:** All users must have an **email address** set in Keycloak to log in to Django, Drupal, and PHP applications.
 
----
-
 ## Features Implemented
 
 - Secure server environment: **Firewall**, **SSL** certificates, **Apache** configuration.
@@ -89,8 +77,6 @@ It is deployed on a Rocky Linux 10 DigitalOcean droplet with SSL-secured applica
 - **PHP OIDC** client integration: Stores tokens, session management, profile display.
 
 - Database integration: **MariaDB** for **Keycloak**, **Drupal** and **Django**.
-
----
 
 ## Author
 

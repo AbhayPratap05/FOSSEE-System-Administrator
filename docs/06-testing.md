@@ -2,8 +2,6 @@
 
 This document verifies the SSO integration across all applications (Drupal, Django, PHP) with Keycloak.
 
----
-
 ## 1. Prerequisites
 
 - Keycloak running at: `https://abhaypratap.dev`
@@ -17,8 +15,6 @@ This document verifies the SSO integration across all applications (Drupal, Djan
   - Frontchannel and Backchannel logout enabled (For Single Logout)
 
 > **Note:** All users must have an **email address** set in Keycloak to login in Django, Drupal, and PHP applications.
-
----
 
 ## 2. Login Flow
 
@@ -42,23 +38,17 @@ This document verifies the SSO integration across all applications (Drupal, Djan
    - Enter Credentials
    - Redirect back to PHP home page
 
----
-
 ## 3. Single Sign-On (SSO) Flow
 
 - Login once in **Keycloak** through any app
 - Access all 3 apps without re-authentication.
 - SSO session sharing confirmed.
 
----
-
 ## 4. Single Logout (SLO) Flow
 
 - Logout from anyone of the app (e.g, Django) -> Redirects to Keycloak -> Session terminated.
 - Other apps (Drupal, PHP, Django) automatically gets logged out.
 - Verified that logging out from any one app logs out all apps. (SLO enabled)
-
----
 
 ## 5. Screenshots
 
@@ -76,7 +66,6 @@ This document verifies the SSO integration across all applications (Drupal, Djan
 
 ![PHP-Home](screenshots/testing/PHP-Home.png)
 
----
+## Conclusion:
 
-**Conclusion:**  
 Keycloak SSO works seamlessly across **Drupal, Django, and PHP**, with consistent login and logout.

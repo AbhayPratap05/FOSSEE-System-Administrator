@@ -2,17 +2,12 @@
 
 This document covers deploying a Django project with Keycloak Single Sign-On (SSO) on Rocky Linux 10, using Apache as a reverse proxy and MariaDB as the database.
 
----
-
 ## 1. Prerequisites
 
 - Rocky Linux 10 server
 - Apache with SSL
-- Gunicorn installed in virtual environment
-- Domain configured: django.abhaypratap.dev
+- DNS records configured for subdomain: https://django.abhaypratap.dev
 - Keycloak already running at https://abhaypratap.dev
-
----
 
 ## 2. Create MariaDB Database for Django
 
@@ -27,8 +22,6 @@ GRANT ALL PRIVILEGES ON djangodb.* TO 'djangouser'@'localhost';
 FLUSH PRIVILEGES;
 EXIT;
 ```
-
----
 
 ## 3. Create Django Project
 
@@ -55,8 +48,6 @@ deactivate
 ```
 
 ![Running-Django](screenshots/django/Running-Django.jpeg)
-
----
 
 ## 4. Configure Gunicorn Systemd Service
 
@@ -87,8 +78,6 @@ sudo systemctl status gunicorn_django
 ```
 
 ![Gunicron-Status](screenshots/django/Gunicron-Status.png)
-
----
 
 ## 5. Configure Apache
 
@@ -123,8 +112,6 @@ sudo systemctl restart httpd
 
 ![Apache-Config](screenshots/django/Apache-Config.png)
 
----
-
 ## 6. Configure Keycloak
 
 - In Keycloak Admin Console:
@@ -137,8 +124,6 @@ sudo systemctl restart httpd
   - Copy Client Secret
 
 ![Keycloak-Config](screenshots/django/Keycloak-Config.png)
-
----
 
 ## 7. Configure settings.py
 
@@ -192,8 +177,6 @@ DATABASES = {
 }
 ```
 
----
-
 ## 8. Custom OIDC Backend
 
 mysite/auth.py
@@ -231,8 +214,6 @@ class KeycloakOIDCBackend(OIDCAuthenticationBackend):
 ```
 
 ![auth](screenshots/django/auth.png)
-
----
 
 ## 9. Create Views and Templates
 
@@ -292,8 +273,6 @@ mysite/templates/home.html
 </html>
 ```
 
----
-
 ## 10. Configure URLs
 
 mysite/urls.py
@@ -310,8 +289,6 @@ urlpatterns = [
     path('logout/', views.logout_view, name='logout'),
 ]
 ```
-
----
 
 ## 11. Testing SSO
 
