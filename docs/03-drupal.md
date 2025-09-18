@@ -157,7 +157,7 @@ In the Drupal admin UI, go to Extend and enable the Keycloak module.
     - Save user claims on every login
   - OpenID buttons display in user login form : ABOVE
 
-![Drupal-Config](screenshots/drupal/Drupal-Config.jpeg)
+![Drupal-Config](screenshots/drupal/Drupal-Config.png)
 
 ## 10. Disable Admin Approval for Registration
 
